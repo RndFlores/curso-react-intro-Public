@@ -73,3 +73,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## COMENTARIOS DEL DESARROLLADOR 
+
+### Capitulo 1: Introduccion 
+
+#### index.js
+
+El archivo principal es el index.js, hacemos varios imports pero lo importante es el **APP** es el spot por defecto.
+Estamos creando un root _**const root = ReactDOM.createRoot(document.getElementById('root'));**_  y nos crea un metodo render que permite renderizar dentro del div con id="root" -> root.render(<App />);
+
+#### index.js
+
+Vemos por primeravez un componente, que al inicio parece una funcion pero un **Componente siempre debe iniciar con una letra Mayuscula** y por dentro parece HTML pero no lo es. 
