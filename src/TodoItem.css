@@ -37,7 +37,10 @@
 .Icon-check:hover {
     color: #4caf50; /* Verde al pasar el mouse */
 }
-
+.Icon-svg {
+  width: 24px;
+  height: 24px;
+}
 .Icon-check--active {
     color: #4caf50;
 }
