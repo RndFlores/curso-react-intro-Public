@@ -87,3 +87,7 @@ Estamos creando un root _**const root = ReactDOM.createRoot(document.getElementB
 #### index.js
 
 Vemos por primeravez un componente, que al inicio parece una funcion pero un **Componente siempre debe iniciar con una letra Mayuscula** y por dentro parece HTML pero no lo es. 
+
+### Capitulo States:
+
+Tenemos que tener en cuenta que en TodoSearch.js se creo nuestro primer state donde hace solo un console.log a lo que escribamos en el input, ahora lo que hemos aprendido esque los states no se pueden heredar de hijos a padres sino todo lo contrario de padres a hijos y es por eso que todo el state se elimina (comenta para no perder el rastro) y se colota en App.js dodne este es el padre que se va a comunicar con TodoSearch.js.

@@ -17,7 +17,13 @@ const defaultTodos=[
 
 //nuestro primer componente
 function App() {
- 
+  //cerando state de Todos
+  const [todos, setTodos]=React.useState(defaultTodos);
+
+  const [searchValue, setSearchValue]=React.useState('');
+  console.log('Los usuarios buscan: ' + searchValue);
+  const completedTodos = todos.filter(todo => !!todo.completed).length;
+  const totalTodos = todos.length;
   return (
     //esto es JSX combinar JavaScript con HTML y son elementos de React
     // <div className="App">
@@ -37,13 +43,12 @@ function App() {
     //   </header>   
     // </div>
     // en el React.Fragment hara que en el navegador salga invisible es decir no se veria como un div o algo y no afecte con nuestra estructura de la aplicacion
-
     <React.Fragment> 
       {/* llamando a nuestro componente de REACT dentro de REACT */}
        
-       <TodoCounter completed={16} total={25}/>
+       <TodoCounter completed={completedTodos} total={totalTodos}/>
        
-       <TodoSearch />
+       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}  />
 
        <TodoList>
         {/* map crea un array a partir de larray inicial */}
