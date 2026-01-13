@@ -5,7 +5,8 @@ function TodoItem({ text, completed, onDelete, onComplete }) { // Asumo que lueg
     <li className="TodoItem">
       <span 
         className={`Icon Icon-check ${completed && 'Icon-check--active'}`}
-        // onClick={props.onComplete}
+        onClick={onComplete}
+
       >
         √
       </span>
@@ -14,7 +15,7 @@ function TodoItem({ text, completed, onDelete, onComplete }) { // Asumo que lueg
       </p>
       <span 
         className="Icon Icon-delete"
-        // onClick={props.onDelete}
+        onClick={onDelete}
       >
         X
       </span>

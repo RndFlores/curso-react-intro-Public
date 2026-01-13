@@ -31,6 +31,32 @@ function App() {
     // return todo.text.toLowerCase.includes(searchValue.toLocaleLowerCase());
   });
 
+
+  //funcion para saber que TODO se marco como completado
+  const completeTodo = (text)=>{
+    const newTodos= [...todos];//creamos una copia del array
+    const todoIndex = newTodos.findIndex(
+        (todo) => todo.text == text
+    );//buscamos el indice del TODO
+    newTodos[todoIndex].completed = true;//modificamos el valor de completed a true
+    setTodos(newTodos);
+  }
+
+  //funcion para eliminar
+  // const onDelete= (text) =>{
+  //   const newTodos = todos.filter(todo=> todo.text != text);
+  //   setTodos(newTodos); 
+  // };
+  const onDelete= (text) =>{
+    const newTodos= [...todos];//creamos una copia del array
+    const todoIndex = newTodos.findIndex(
+        (todo) => todo.text == text
+    );//buscamos el indice del TODO
+    newTodos.splice(todoIndex, 1);//eliminamos el TODO en el indice encontrado
+    setTodos(newTodos);
+  };
+
+
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
   return (
@@ -62,7 +88,10 @@ function App() {
        <TodoList>
         {/* map crea un array a partir de larray inicial */}
         {searchedTodos.map(todo =>(
-          <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
+          <TodoItem key={todo.text} text={todo.text} completed={todo.completed}
+          onComplete={()=>completeTodo(todo.text)} //envolvemos en una funcion para que no se ejecute inmediatamente y no rompa
+          onDelete={()=> onDelete(todo.text)}
+          />
         ))}
        </TodoList>
 
