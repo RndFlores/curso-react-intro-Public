@@ -11,11 +11,11 @@ function TodoItem({ text, completed, onDelete, onComplete }) { // Asumo que lueg
         onClick={onComplete}>
         √
       </span> */}
-      <CompleteIcon />
+      <CompleteIcon  completed={completed} onComplete={onComplete}/>
       <p className={`TodoItem-p ${completed && 'TodoItem-p--completed'}`}>
         {text}
       </p>
-      <DeleteIcon />
+      <DeleteIcon onDelete={onDelete}/>
       {/* <span 
         className="Icon Icon-delete"
         onClick={onDelete}>
