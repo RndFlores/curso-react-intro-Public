@@ -20,8 +20,17 @@ function App() {
   //cerando state de Todos
   const [todos, setTodos]=React.useState(defaultTodos);
 
+  //estado para el buscador
   const [searchValue, setSearchValue]=React.useState('');
   console.log('Los usuarios buscan: ' + searchValue);
+  
+  const searchedTodos = todos.filter( todo => {
+    const todoText = todo.text.toLocaleLowerCase();
+    const todoSearch = searchValue.toLocaleLowerCase();
+    return todoText.includes(todoSearch);
+    // return todo.text.toLowerCase.includes(searchValue.toLocaleLowerCase());
+  });
+
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
   return (
@@ -52,7 +61,7 @@ function App() {
 
        <TodoList>
         {/* map crea un array a partir de larray inicial */}
-        {defaultTodos.map(todo =>(
+        {searchedTodos.map(todo =>(
           <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
         ))}
        </TodoList>
