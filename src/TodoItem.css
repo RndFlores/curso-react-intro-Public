@@ -1,0 +1,69 @@
+.TodoItem {
+    background-color: #FAFAFA;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); /* Sombra de tarjeta */
+    border-radius: 12px;
+    padding: 12px;
+    transition: transform 0.1s ease;
+}
+
+.TodoItem:hover {
+    transform: scale(1.02); /* Efecto pop al pasar el mouse */
+}
+
+/* Estilos para el Icono de Check (V) */
+.Icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.15s;
+}
+
+.Icon-check {
+    position: absolute;
+    left: 12px;
+    color: #b2b2b2;
+}
+
+.Icon-check:hover {
+    color: #4caf50; /* Verde al pasar el mouse */
+}
+
+.Icon-check--active {
+    color: #4caf50;
+}
+
+/* Estilos para el Texto */
+.TodoItem-p {
+    margin: 24px 0 24px 24px;
+    width: calc(100% - 120px); /* Espacio para no chocar con iconos */
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.TodoItem-p--completed {
+    text-decoration: line-through;
+    color: #b2b2b2;
+}
+
+/* Estilos para el Icono de Borrar (X) */
+.Icon-delete {
+    position: absolute;
+    top: -12px; /* Efecto flotante en la esquina */
+    right: 0;
+    color: #b2b2b2;
+}
+
+.Icon-delete:hover {
+    color: #f44336; /* Rojo al borrar */
+}

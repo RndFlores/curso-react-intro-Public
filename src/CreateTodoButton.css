@@ -1,0 +1,30 @@
+.CreateTodoButton {
+    background-color: #61DAFB;
+    box-shadow: 0px 5px 25px rgba(97, 218, 251, 0.5);
+    border: none;
+    border-radius: 50%; /* Círculo perfecto */
+    cursor: pointer;
+    font-size: 50px;
+    position: fixed; /* Fijo en la pantalla */
+    bottom: 24px;
+    right: 24px;
+    font-weight: bold;
+    color: #FAFAFA;
+    
+    /* Flexbox para centrar el + */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    
+    height: 64px;
+    width: 64px;
+    
+    transform: rotate(0);
+    transition: .3s ease;
+    z-index: 1; /* Para que siempre esté encima de todo */
+}
+
+.CreateTodoButton:hover {
+    background-color: #4abbd8;
+    transform: rotate(224deg); /* Efecto giratorio cool */
+}

@@ -1,0 +1,27 @@
+.TodoSearch {
+    background: #ffffff;
+    border-radius: 8px;
+    border: 2px solid #202329;
+    margin: 0 auto; /* Centrado */
+    height: 54px;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    color: #1E1E1F;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+    display: block; /* Importante para que el margin auto funcione */
+}
+
+.TodoSearch:focus {
+    outline: none;
+    border-color: #61dafb; /* Azul React */
+    box-shadow: 0px 5px 20px rgba(97, 218, 251, 0.3);
+}
+
+.TodoSearch::placeholder {
+    color: #a5a5a5;
+    font-weight: 300;
+}
