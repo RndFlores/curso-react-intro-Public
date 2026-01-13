@@ -91,3 +91,59 @@ Vemos por primeravez un componente, que al inicio parece una funcion pero un **C
 ### Capitulo States:
 
 Tenemos que tener en cuenta que en TodoSearch.js se creo nuestro primer state donde hace solo un console.log a lo que escribamos en el input, ahora lo que hemos aprendido esque los states no se pueden heredar de hijos a padres sino todo lo contrario de padres a hijos y es por eso que todo el state se elimina (comenta para no perder el rastro) y se colota en App.js dodne este es el padre que se va a comunicar con TodoSearch.js.
+
+
+### Capitulo LocalStorage:
+
+Estamos aprendiendo como funciona LocalStorage con React, esto se aprende en un curso de JavaScript para que puedas profundisar un poco más pero para este capitulo será más resumido.
+
+**Comando Especiales:**
+```javaScript
+//Todos estos comandos se deben ejecutar en la consola de la pagina web 
+localStorage
+
+localStorage.getItem('NameKey')
+
+localStorage.setItem('NameKey','Value')
+
+localStorage.removeItem('NameKey')
+```
+
+ahora para este capitulo vamos a recordar que nosotros para los TodoItem.js tenemos un array de json. 
+
+```javaScript
+const defaultTodos=[
+  {text: 'Cortar Cebolla', completed: true},
+  {text: 'Tomar el curso de intro a React', completed: false},
+  {text: 'Llorar con la llorona', completed: false},
+  {text: 'Ver la pelicula del conjuro', completed: true},
+  {text: 'Comprar pan', completed: false},
+]
+```
+
+pero ahora ya no haremos eso si no, aprovecharemos el mecanismo de localStorage y ejecutaremos lo siguiente para poder ver nuestros defaultTodos
+
+```javaScript
+
+//Todo ejecutado en la consola de la web
+//Paso 1 crear nuestros defaultTodos
+const defaultTodos=[
+  {text: 'Cortar Cebolla', completed: true},
+  {text: 'Tomar el curso de intro a React', completed: false},
+  {text: 'Llorar con la llorona', completed: false},
+  {text: 'Ver la pelicula del conjuro', completed: true},
+  {text: 'Comprar pan', completed: false},
+]
+//Paso 2 parsear para que sea en string y no un array de Jsons
+const stringifiedTodos= JSON.stringify(defaultTodos);
+//podemos verificar que se creo correctamente
+stringifiedTodos
+//Paso 3 guardarlo en localStorage
+localStorage.setItem('TODOS_V1',stringifiedTodos);
+//Podemos verificar
+localStorage.getItem('TODOS_V1')
+//guardarlo en una variable
+const localStorageTodos = localStorage.getItem('TODOS_V1');
+let parsedTodos= JSON.parse(localStorageTodos);
+
+```

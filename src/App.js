@@ -7,18 +7,40 @@ import { TodoList } from './TodoList';
 import { CreateTodoButton } from './CreateTodoButton';
 // import './App.css';
 
-const defaultTodos=[
-  {text: 'Cortar Cebolla', completed: true},
-  {text: 'Tomar el curso de intro a React', completed: false},
-  {text: 'Llorar con la llorona', completed: false},
-  {text: 'Ver la pelicula del conjuro', completed: true},
-  {text: 'Comprar pan', completed: false},
-]
+// const defaultTodos=[
+//   {text: 'Cortar Cebolla', completed: true},
+//   {text: 'Tomar el curso de intro a React', completed: false},
+//   {text: 'Llorar con la llorona', completed: false},
+//   {text: 'Ver la pelicula del conjuro', completed: true},
+//   {text: 'Comprar pan', completed: false},
+// ]
+// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
+
+// localStorage.setItem('TODOS_V1', JSON.stringify([
+//   {text: 'Cortar Cebolla', completed: true},
+//   {text: 'Tomar el curso de intro a React', completed: false},
+//   {text: 'Llorar con la llorona', completed: false},
+//   {text: 'Ver la pelicula del conjuro', completed: true},
+//   {text: 'Comprar pan', completed: false}, 
+// ]));
+
+
+// localStorage.removeItem('TODOS_V1');
 
 //nuestro primer componente
 function App() {
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+  let parsedTodos;
+  if (!localStorageTodos ){
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    parsedTodos=[]
+  }else{
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+
   //cerando state de Todos
-  const [todos, setTodos]=React.useState(defaultTodos);
+  const [todos, setTodos]=React.useState(parsedTodos);
 
   //estado para el buscador
   const [searchValue, setSearchValue]=React.useState('');
@@ -31,7 +53,12 @@ function App() {
     // return todo.text.toLowerCase.includes(searchValue.toLocaleLowerCase());
   });
 
-
+  //funcion para marcar como completado
+  const saveTodos = (newTodos)=>{
+    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
+    setTodos(newTodos);
+  };
+ 
   //funcion para saber que TODO se marco como completado
   const completeTodo = (text)=>{
     const newTodos= [...todos];//creamos una copia del array
@@ -39,7 +66,7 @@ function App() {
         (todo) => todo.text == text
     );//buscamos el indice del TODO
     newTodos[todoIndex].completed = true;//modificamos el valor de completed a true
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
 
   //funcion para eliminar
@@ -53,7 +80,7 @@ function App() {
         (todo) => todo.text == text
     );//buscamos el indice del TODO
     newTodos.splice(todoIndex, 1);//eliminamos el TODO en el indice encontrado
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
 
